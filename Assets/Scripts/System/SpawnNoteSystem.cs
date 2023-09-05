@@ -4,12 +4,13 @@ using Unity.Entities;
 namespace Game
 {
     [BurstCompile]
-    public struct SpawnNoteSystem : ISystem
+    public partial struct SpawnNoteSystem : ISystem
     {
         [BustCompile]
         public void OnCreate(ref SystemState state)
         {
-            
+            state.RequireForUpdate<NotePadTag>();
+            state.RequireForUpdate<NoteSpawnerTag>();
         }
 
         [BurstCompile]

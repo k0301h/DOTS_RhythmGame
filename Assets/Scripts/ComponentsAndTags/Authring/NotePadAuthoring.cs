@@ -2,7 +2,7 @@
 
 namespace Game
 {
-    public struct NotePadTags : IComponentData {}
+    public struct NotePadTag : IComponentData {}
 
     public struct NotePadAuthoring : IComponentData
     {
