@@ -23,7 +23,7 @@ namespace Game
             AddComponent(NoteEntity, new NoteAuthoring()
             {
                 Id = authoring.Id,
-                NoteType = authoring.NoteType,
+                //NoteType = authoring.NoteType,
                 Position = authoring.Position
             });
         }

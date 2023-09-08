@@ -1,5 +1,7 @@
 ﻿using Unity.Entities;
 using Unity.Transforms;
+using Unity.Mathematics;
+using UnityEngine.Rendering;
 
 namespace Game
 {
@@ -10,5 +12,11 @@ namespace Game
         public readonly RefRO<NoteTag> Tag;
         private readonly RefRW<LocalTransform> Transform;
         private readonly RefRW<NoteAuthoring> NoteAuthoring;
+
+        public float3 Position
+        {
+            get => Transform.ValueRO.Position;
+            set => Transform.ValueRW.Position = value;
+        }
     }
 }

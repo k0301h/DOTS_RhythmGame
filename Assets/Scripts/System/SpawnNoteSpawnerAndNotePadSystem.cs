@@ -34,12 +34,12 @@ namespace Game
             // var NoteSpawnerEntity = SystemAPI.GetSingletonEntity<NoteSpawnerAuthoring>();
             // var NoteSpawner = SystemAPI.GetAspect<NoteSpawnerAspect>(NoteSpawnerEntity);
             
-            var ecb = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged);
+            //var ecb = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged);
             // ecb는 system에 종속된 작업 ==> state.Enabled = false을 하면 가끔 instance할때도 있고 안할때도 있다.
             // ==>알아봐보자
 
-            var entity = SystemAPI.GetSingletonEntity<NoteSpawnerTag>();
-         	var newNodeEntity = ecb.Instantiate(entity);
+            //var entity = SystemAPI.GetSingletonEntity<NoteSpawnerTag>();
+         	//var newNodeEntity = ecb.Instantiate(entity);
         }
     }
 }

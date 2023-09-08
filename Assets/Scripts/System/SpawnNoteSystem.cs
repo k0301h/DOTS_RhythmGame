@@ -24,10 +24,10 @@ namespace Game
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            var ecb = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged);
+            //var ecb = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged);
 
-            var entity = SystemAPI.GetSingletonEntity<NoteTag>();
-            var newNodeEntity = ecb.Instantiate(entity);
+            //var entity = SystemAPI.GetSingletonEntity<NoteTag>();
+            //var newNodeEntity = ecb.Instantiate(entity);
         }
     }
 }

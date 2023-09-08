@@ -19,7 +19,7 @@ namespace Game
         public int Id;
 
         public float Speed;
-        public NoteType NoteType;
+        //public NoteType NoteType;
         public float3 Position;
         
         // 동우 방식
