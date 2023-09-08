@@ -1,9 +1,10 @@
 ﻿using Unity.Entities;
-using UnityEngien;
+using Unity.Mathematics;
+using UnityEngine;
 
 namespace Game
 {
-    public class NoteMono : MonoBehavier
+    public class NoteMono : MonoBehaviour
     {
         // 기존 방식
         public int Id;
@@ -16,14 +17,15 @@ namespace Game
     {
         public override void Bake(NoteMono authoring)
         {
-            var NoteEntity = GetEntity(authoring.gameObject, TranformUsageFlags.Dynamic);
+            var NoteEntity = GetEntity(TransformUsageFlags.Dynamic);
+            // var NoteEntity = GetEntity(authoring.gameObject, TransformUsageFlags.Dynamic);   ==> 두개의 차이점 확실히 알아보기
             AddComponent<NoteTag>(NoteEntity);
-			AddComponent(NoteEntity, new NoteAuthoring()	
-			{
-				Id = authoring.Id;
-				NoteType = authoring.NoteType;
-				Position = authoring.Position;
-			})
+            AddComponent(NoteEntity, new NoteAuthoring()
+            {
+                Id = authoring.Id,
+                NoteType = authoring.NoteType,
+                Position = authoring.Position
+            });
         }
     }
 }

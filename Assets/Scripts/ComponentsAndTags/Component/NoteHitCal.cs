@@ -2,7 +2,7 @@
 
 namespace Game
 {
-    public struct NoteHitCal : IComponent
+    public struct NoteHitCal : IComponentData
     {
 
     }

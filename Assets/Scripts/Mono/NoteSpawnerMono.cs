@@ -1,4 +1,6 @@
 ﻿using Unity.Entities;
+using Unity.Mathematics;
+using UnityEngine;
 
 namespace Game
 {
@@ -12,16 +14,16 @@ namespace Game
 
     public class NoteSpawnerBaker : Baker<NoteSpawnerMono>
     {
-        public override Bake(NoteSpawnerMono authoring)
+        public override void Bake(NoteSpawnerMono authoring)
         {
             var NotespawnerEntity = GetEntity(TransformUsageFlags.Dynamic);
-            AddComponent<NoteSpawnerTags>(NotespawnerEntity);
+            AddComponent<NoteSpawnerTag>(NotespawnerEntity);
             AddComponent(NotespawnerEntity, new NoteSpawnerAuthoring()
             {
-                Id = authoring.Id;
-                Speed = authoring.Speed;
-                Position = authoring.Position;
-            })
+                Id = authoring.Id,
+                Speed = authoring.Speed,
+                Position = authoring.Position
+            });
         }
     }
 }

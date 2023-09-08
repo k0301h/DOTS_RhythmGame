@@ -7,8 +7,8 @@ namespace Game
     {
         public readonly Entity Entity;
 
-        public readonly RefRO<NoteTags> _Tag;
-        private readonly RefRW<LocalTransform> _Transform;
-        private readonly RefRW<NoteAuthoring> _NoteAuthoring;
+        public readonly RefRO<NoteTag> Tag;
+        private readonly RefRW<LocalTransform> Transform;
+        private readonly RefRW<NoteAuthoring> NoteAuthoring;
     }
 }

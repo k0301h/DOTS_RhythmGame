@@ -6,10 +6,12 @@ namespace Game
     [BurstCompile]
     public partial struct SpawnNoteSystem : ISystem
     {
-        [BustCompile]
+        [BurstCompile]
         public void OnCreate(ref SystemState state)
         {
-            state.RequireForUpdate<NotePadTag>();
+            state.RequireForUpdate<NoteTag>();
+            state.RequireForUpdate<BeginSimulationEntityCommandBufferSystem.Singleton>();
+            // state.RequireForUpdate<NotePadTag>();
             state.RequireForUpdate<NoteSpawnerTag>();
         }
 
@@ -19,10 +21,13 @@ namespace Game
             
         }
 
-        [BurstCompie]
+        [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            
+            var ecb = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged);
+
+            var entity = SystemAPI.GetSingletonEntity<NoteTag>();
+            var newNodeEntity = ecb.Instantiate(entity);
         }
     }
 }

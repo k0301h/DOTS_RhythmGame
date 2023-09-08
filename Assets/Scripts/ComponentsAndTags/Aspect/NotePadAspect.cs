@@ -1,4 +1,5 @@
 ﻿using Unity.Entities;
+using Unity.Transforms;
 
 namespace Game
 {
@@ -6,8 +7,8 @@ namespace Game
     {
         public readonly Entity Entity;
 
-        public readonly RefRO<NotePadTag> _Tag;
-        private readonly RefRW<LocalTransform> _Transform;
-        private readonly RefRW<NotePadHealth> _NoteaPadHealth;
+        public readonly RefRO<NotePadTag> Tag;
+        private readonly RefRW<LocalTransform> Transform;
+        private readonly RefRW<NotePadHealth> NoteaPadHealth;
     }
 }
