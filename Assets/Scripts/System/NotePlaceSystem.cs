@@ -2,6 +2,7 @@
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
+using Random = System.Random;
 
 namespace Game
 {
@@ -25,7 +26,9 @@ namespace Game
             //state.EntityManager.SetComponentData(query);
 
             var ecb = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged);
+
             
+            // LocalTransform을 수정하기 위해서 RW로 참조
             foreach (var(tag, transform, entity) in SystemAPI.Query<SpawnNoteTag,RefRW<LocalTransform>>().WithEntityAccess())
             {
                 if(transform.ValueRO.Position.y < 0)    // 그래서 임시 방편으로 system이 돌아가는것을 확인하기 위해서 if문 작성
