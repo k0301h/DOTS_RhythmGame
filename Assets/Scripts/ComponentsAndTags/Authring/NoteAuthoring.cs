@@ -3,6 +3,7 @@ using Unity.Mathematics;
 
 namespace Game
 {
+    public struct SpawnNoteTag : IComponentData {}
     public struct NoteTag : IComponentData {}
     public struct ShortNoteTag : IComponentData {}
     public struct LongNoteTag : IComponentData {}

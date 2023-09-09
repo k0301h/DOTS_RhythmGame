@@ -96,9 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd489a0ddf682e446bba38ce35b2e09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 0
-  Speed: 0
   Position:
     x: 0
     y: 0
     z: 0
+  NoteObject: {fileID: 6750723368683116506, guid: 22918f865c3cacb44ba1c4d7d9c89a74,
+    type: 3}

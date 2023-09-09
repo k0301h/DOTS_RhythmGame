@@ -6,23 +6,21 @@ namespace Game
 {
     public class NoteSpawnerMono : MonoBehaviour
     {
-        public int Id;
-        
-        public float Speed;
         public float3 Position;
+        public GameObject NoteObject;  
+        // Entity로 하면 Unity Inspector View에서 보이지가 않고, Entity는 실행을 했을때 생성이 되므로 prefab으로 넣은수가 없다.
     }
 
     public class NoteSpawnerBaker : Baker<NoteSpawnerMono>
     {
         public override void Bake(NoteSpawnerMono authoring)
         {
-            var NotespawnerEntity = GetEntity(TransformUsageFlags.Dynamic);
+            var NotespawnerEntity = GetEntity(authoring.gameObject,TransformUsageFlags.Dynamic);
             AddComponent<NoteSpawnerTag>(NotespawnerEntity);
             AddComponent(NotespawnerEntity, new NoteSpawnerAuthoring()
             {
-                Id = authoring.Id,
-                Speed = authoring.Speed,
-                Position = authoring.Position
+                Position = authoring.Position,
+                NoteEntity = GetEntity(authoring.NoteObject, TransformUsageFlags.Dynamic)
             });
         }
     }

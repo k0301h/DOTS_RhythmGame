@@ -13,7 +13,7 @@ namespace Game
     {
         public override void Bake(NotePadMono authoring)
         {
-            var NotePadEntity = GetEntity(TransformUsageFlags.Dynamic);
+            var NotePadEntity = GetEntity(authoring.gameObject,TransformUsageFlags.Dynamic);
             AddComponent<NotePadTag>(NotePadEntity);
         }
     }

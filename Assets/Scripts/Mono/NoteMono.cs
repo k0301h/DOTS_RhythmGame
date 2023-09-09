@@ -17,8 +17,9 @@ namespace Game
     {
         public override void Bake(NoteMono authoring)
         {
-            var NoteEntity = GetEntity(TransformUsageFlags.Dynamic);
+            var NoteEntity = GetEntity(authoring.gameObject,TransformUsageFlags.Dynamic);
             // var NoteEntity = GetEntity(authoring.gameObject, TransformUsageFlags.Dynamic);   ==> 두개의 차이점 확실히 알아보기
+            AddComponent<SpawnNoteTag>(NoteEntity);
             AddComponent<NoteTag>(NoteEntity);
             AddComponent(NoteEntity, new NoteAuthoring()
             {

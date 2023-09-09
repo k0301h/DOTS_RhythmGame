@@ -9,7 +9,9 @@ namespace Game
     {
         public readonly Entity Entity;
 
-        public readonly RefRO<NoteTag> Tag;
+        public readonly RefRO<NoteTag> NoteTag;
+        public readonly RefRO<SpawnNoteTag> SpawnNoteTag;
+        
         private readonly RefRW<LocalTransform> Transform;
         private readonly RefRW<NoteAuthoring> NoteAuthoring;
 

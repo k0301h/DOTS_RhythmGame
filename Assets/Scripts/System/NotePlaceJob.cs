@@ -5,9 +5,9 @@ namespace Game
 {
     public partial struct NotePlaceJob : IJobEntity
     {
-        private void Execute(NoteAspect noteaspect)
+        private static void Execute(NoteAspect noteAspect)
         {
-            noteaspect.Position = new float3(0, 100, 0);
+            noteAspect.Position = new float3(0, 10000, 0);
         }
     }
 }

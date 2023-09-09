@@ -8,8 +8,10 @@ namespace Game
     public readonly partial struct NoteSpawnerAspect : IAspect
     {
         public readonly Entity Entity;
-        
+
+        public readonly RefRO<NoteSpawnerAuthoring> NoteSpawnerAuthoring;
+            
         public readonly RefRO<NoteSpawnerTag> Tag;
-        private readonly RefRW<LocalTransform> Transform;
+        public readonly RefRW<LocalTransform> Transform;
     }
 }
