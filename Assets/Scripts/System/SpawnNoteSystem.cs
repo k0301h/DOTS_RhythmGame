@@ -25,14 +25,22 @@ namespace Game
         public void OnUpdate(ref SystemState state)
         {
             var ecb = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>().CreateCommandBuffer(state.WorldUnmanaged);
-            // NoteSpawnerTag라는 Component를 가지고 있는 객체가 singleton이라면 NoteSpawnerAspect을 받아온다.
-            var Entity = SystemAPI.GetAspect<NoteSpawnerAspect>(SystemAPI.GetSingletonEntity<NoteSpawnerTag>());
-            
-            // Aspect의 Authoring의 RO인 NoteEntity을 받아온다.
+            // // NoteSpawnerTag라는 Component를 가지고 있는 객체가 singleton이라면 NoteSpawnerAspect을 받아온다.
+            // var Entity = SystemAPI.GetAspect<NoteSpawnerAspect>(SystemAPI.GetSingletonEntity<NoteSpawnerTag>());
+            //
+            // // Aspect의 Authoring의 RO인 NoteEntity을 받아온다.
+            // if (Input.GetKeyDown(KeyCode.A))
+            // {
+            //     ecb.Instantiate(Entity.NoteSpawnerAuthoring.ValueRO.NoteEntity);
+            // } 
+
             if (Input.GetKeyDown(KeyCode.A))
             {
-                ecb.Instantiate(Entity.NoteSpawnerAuthoring.ValueRO.NoteEntity);
-            } 
+                var entity = SystemAPI.GetComponent<NoteSpawnerAuthoring>(SystemAPI.GetSingletonEntity<NoteSpawnerTag>()).NoteEntity;
+                ecb.Instantiate(entity);
+                
+                Debug.Log("ads")
+;            }
         }
     }
 }

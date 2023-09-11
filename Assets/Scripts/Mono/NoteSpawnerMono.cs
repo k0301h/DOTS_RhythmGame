@@ -15,12 +15,20 @@ namespace Game
     {
         public override void Bake(NoteSpawnerMono authoring)
         {
-            var NotespawnerEntity = GetEntity(authoring.gameObject,TransformUsageFlags.Dynamic);
-            AddComponent<NoteSpawnerTag>(NotespawnerEntity);
-            AddComponent(NotespawnerEntity, new NoteSpawnerAuthoring()
+            // var NotespawnerEntity = GetEntity(authoring.gameObject,TransformUsageFlags.Dynamic);
+            // AddComponent<NoteSpawnerTag>(NotespawnerEntity);
+            // AddComponent(NotespawnerEntity, new NoteSpawnerAuthoring()
+            // {
+            //     Position = authoring.Position,
+            //     NoteEntity = GetEntity(authoring.NoteObject, TransformUsageFlags.Dynamic)
+            // });
+
+            var entity = GetEntity(TransformUsageFlags.Dynamic);
+            
+            AddComponent<NoteSpawnerTag>(entity);
+            AddComponent(entity, new NoteSpawnerAuthoring()
             {
-                Position = authoring.Position,
-                NoteEntity = GetEntity(authoring.NoteObject, TransformUsageFlags.Dynamic)
+                NoteEntity = GetEntity(authoring.NoteObject,TransformUsageFlags.Dynamic),
             });
         }
     }
